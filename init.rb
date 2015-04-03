@@ -1,10 +1,11 @@
 require 'redmine'
 
+require_dependency 'mail_handler_model_patch'
 require_dependency 'auto_watch_hook'
 
 Redmine::Plugin.register :redmine_auto_watch do
   name 'Redmine Auto Watch plugin'
-  author 'Teddy Lerat'
+  author 'Teddy Lerat, Dmitry Yu Okunev'
   description 'This plugin is a hook to add users in the issue watchers list automatically when they are involved in it.'
-  version '1.0.0'
+  version '1.0.1'
 end
