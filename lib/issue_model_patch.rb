@@ -9,15 +9,18 @@ module AutoWatch
 					self.add_watcher(watcher) unless self.watched_by?(watcher)
 				end
 
-				def autowatch_beforesave_hook
-					#Rails.logger.info(self.to_yaml)
+				def autowatch_hook
 					autowatch_add_watcher(self.author)
 					autowatch_add_watcher(self.assigned_to)
-
-					
 				end
 
-				before_save :autowatch_beforesave_hook
+				def autowatch_aroundsave_hook
+					autowatch_hook
+					yield
+					autowatch_hook
+				end
+
+				around_save :autowatch_aroundsave_hook
 			end
 		end
 	end
