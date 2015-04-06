@@ -1,6 +1,6 @@
 require 'redmine'
 
-require_dependency 'mail_handler_model_patch'
+require_dependency 'issue_model_patch'
 require_dependency 'auto_watch_hook'
 
 Redmine::Plugin.register :redmine_auto_watch do
